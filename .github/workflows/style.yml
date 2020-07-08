@@ -48,13 +48,4 @@ jobs:
           HOMEBREW_DEVELOPER: 1
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: brew cask style
-        run: |
-          cd "$(brew --repository "${GITHUB_REPOSITORY}")"
-          export HOMEBREW_GITHUB_EVENT_NAME="${GITHUB_EVENT_NAME}"
-          export HOMEBREW_GITHUB_EVENT_PATH="${GITHUB_EVENT_PATH}"
-          brew cask ci --only-style --annotate-style-violations
-        env:
-          CI: true
-          HOMEBREW_COLOR: 1
-          HOMEBREW_DEVELOPER: 1
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: brew cask style
